@@ -117,8 +117,8 @@ p{text-wrap:pretty}
 .btn--primary{background:var(--green);color:var(--cream);box-shadow:0 8px 22px -10px rgba(27,90,76,.55)}
 .btn--primary:hover{background:#16493e;box-shadow:0 14px 30px -12px rgba(27,90,76,.6)}
 .btn--primary:hover svg{transform:translateX(4px)}
-.btn--warm{background:var(--coral);color:var(--green-900)}
-.btn--warm:hover{background:#f18d6f}
+.btn--warm{background:#c94a28;color:#fff}
+.btn--warm:hover{background:#d95a36}
 .btn--warm:hover svg{transform:translateX(4px)}
 .btn--ghost{background:transparent;color:var(--green);box-shadow:inset 0 0 0 1.5px var(--line-deep)}
 .btn--ghost:hover{background:var(--green);color:var(--cream)}
@@ -153,11 +153,11 @@ p{text-wrap:pretty}
 .nav a:hover{color:var(--green);background:var(--surface)}
 .nav a[aria-current="page"]{color:var(--green);background:var(--surface)}
 .nav .live{
-  margin-left:.4rem;background:var(--coral);color:var(--green-900);font-weight:700;
+  margin-left:.4rem;background:#c94a28;color:#fff;font-weight:700;
   display:inline-flex;align-items:center;gap:.45rem;
 }
-.nav .live:hover{background:#f18d6f;color:var(--green-900)}
-.nav .live[aria-current="page"]{background:var(--coral)}
+.nav .live:hover{background:#d95a36;color:#fff}
+.nav .live[aria-current="page"]{background:#c94a28}
 .live .dot{width:8px;height:8px;border-radius:50%;background:var(--cream);position:relative}
 .live .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--cream);opacity:.6;animation:ping 1.8s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.7);opacity:.6}100%{transform:scale(1.7);opacity:0}}
@@ -180,7 +180,7 @@ dialog.menu::backdrop{background:rgba(16,46,40,.45);backdrop-filter:blur(3px)}
 .hero{position:relative;padding-top:clamp(7rem,14vw,10rem);padding-bottom:var(--section-y)}
 .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .hero-kicker{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;color:var(--coral-ink);margin-bottom:1.4rem;font-size:1.02rem}
-.hero-kicker .tick{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--coral);color:var(--green-900);align-items:center;justify-content:center}
+.hero-kicker .tick{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--coral);color:#231712;align-items:center;justify-content:center}
 .hero h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:400;margin-bottom:1.3rem}
 .hero h1 .u{position:relative;white-space:nowrap}
 .hero h1 .u::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.34em;background:var(--coral);opacity:.42;border-radius:4px;z-index:-1}
@@ -214,7 +214,8 @@ dialog.menu::backdrop{background:rgba(16,46,40,.45);backdrop-filter:blur(3px)}
 .phero h1 .u::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.34em;background:var(--coral);opacity:.42;border-radius:4px;z-index:-1}
 .phero p{font-size:clamp(1.08rem,1.02rem + .4vw,1.28rem);color:var(--ink-soft);max-width:60ch}
 .phero.center p{margin-inline:auto}
-.phero .pcta{margin-top:1.8rem;display:flex;flex-wrap:wrap;gap:1rem}
+.pcta{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.6rem}
+.phero .pcta{margin-top:1.8rem}
 .phero.center .pcta{justify-content:center}
 
 /* ============================================================= EVENT BANNER */
@@ -372,7 +373,7 @@ blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(1.05rem,1rem
 .guide-featured img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .guide-featured .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,46,40,0) 30%,rgba(16,46,40,.86))}
 .guide-featured .c{position:relative;padding:1.8rem}
-.guide-featured .pill{display:inline-block;background:var(--coral);color:var(--green-900);font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:.8rem}
+.guide-featured .pill{display:inline-block;background:var(--coral);color:#231712;font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:.8rem}
 .guide-featured h3{color:var(--cream);font-size:1.7rem;margin-bottom:.5rem}
 .guide-featured p{color:rgba(251,252,252,.85);max-width:42ch;margin-bottom:1.1rem}
 .guide-list{display:flex;flex-direction:column;gap:.6rem}
