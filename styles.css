@@ -7,14 +7,14 @@
   --surface-warm:#fbece4;  /* warm coral band */
   --green:#1b5a4c;         /* brand green — pine, a touch brighter (primary) */
   --green-deep:#15413a;
-  --green-900:#0f2d27;     /* darkest — text on coral */
+  --green-900:#0a1f1a;     /* darkest — crisp dark text on coral buttons */
   --ink:#21302c;           /* heading/strong text (~13:1) */
   --ink-soft:#45585a;      /* body (~6.9:1) */
   --coral:#ed7a57;         /* accent — fills, shapes, hover (brighter) */
   --coral-soft:#f2b6a1;
   --coral-ink:#a8472b;     /* coral AS TEXT/links — deep terracotta, same hue */
   --cream:#faf9f6;         /* text on green/dark */
-  --line:#dee7e1;          /* hairline */
+  --line:#e7eee9;          /* hairline — light */
   --line-deep:#2e5a4f;
 
   /* per-category accents */
@@ -39,9 +39,9 @@
   --r-xl:40px;
 
   /* shadow */
-  --shadow-sm:0 1px 2px rgba(2,46,46,.05), 0 2px 8px rgba(2,46,46,.05);
-  --shadow:0 10px 30px -12px rgba(2,46,46,.18), 0 2px 8px -4px rgba(2,46,46,.10);
-  --shadow-lg:0 30px 70px -28px rgba(2,46,46,.30);
+  --shadow-sm:0 1px 2px rgba(2,46,46,.03), 0 2px 8px rgba(2,46,46,.035);
+  --shadow:0 8px 24px -14px rgba(2,46,46,.12), 0 2px 6px -5px rgba(2,46,46,.06);
+  --shadow-lg:0 26px 64px -30px rgba(2,46,46,.24);
 
   /* motion */
   --ease:cubic-bezier(.2,.7,.2,1);
