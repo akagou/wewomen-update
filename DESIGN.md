@@ -1,39 +1,42 @@
 # Design
 
-The redesign **keeps the brand's existing equity** — teal + coral + a warm neutral, the Playfair display serif, the logo, and the copy — and modernizes everything around it: a cleaner neutral, a contemporary body sans, asymmetric editorial layouts (no centered monotony), real photography below the fold, fixed contrast, and purposeful motion. The goal is "they redesigned it," not "is this still the same brand?"
+The redesign **keeps the brand's equity** and modernizes everything around it: asymmetric editorial layouts (no centered monotony), real photography below the fold, fixed contrast, and purposeful motion. It is skinned to the **canonical WeWomen brand** — Mercado serif, green `#2E5650`, Montserrat, coral `#E07A5F` — so it matches `free-library.html` and the funnel mockup, NOT the older live Lovable homepage (which still runs Playfair + `#004D4D` teal). The goal is "they redesigned it," not "is this still the same brand?"
 
 ## Theme
 
-Light, warm, editorial. A fresh near-white canvas (cleaner and brighter than the previous warm cream), deep teal as the ink and structural colour, coral as the single energising accent. Scene: a woman reading on her phone in good daylight — the page should feel like clear morning light, calm and credible, with warmth carried by photography and the coral, not by a beige background.
+Light, warm, editorial. Brand **cream** canvas (`#FAF8F4`), deep **green** as the ink and structural colour, **coral** as the single energising accent, with soft sage and warm bands for rhythm. Scene: a woman reading on her phone in good daylight — calm, credible, warmth carried by photography and the coral, not by visual noise.
 
 ## Color
 
-OKLCH-defined, evolved from the live brand colours (`#004D4D` teal, `#E78B7E` coral). Strategy: **restrained** — teal + warm-neutral surfaces carry the page, coral is the ≤10% accent. Teal is allowed to go full-bleed for one or two committed bands (event, footer).
+Canonical WeWomen tokens (shared with the free-library + funnel pages). Strategy: **restrained** — green + neutral surfaces carry the page, coral is the ≤10% accent. Green goes full-bleed for two committed bands (event surface, footer).
 
 | Token | Value | Role |
 |---|---|---|
-| `--bg` | `oklch(0.992 0.003 190)` ≈ `#F9FCFC` | Page background — fresh near-white, whisper of teal (replaces warm cream `#F9F8F6`) |
-| `--surface` | `oklch(0.971 0.012 190)` ≈ `#E9F2F1` | Alt section bands — pale teal mist |
-| `--surface-warm` | `oklch(0.955 0.022 45)` ≈ `#FBEDE6` | One warm accent band (session replay) |
-| `--teal` | `#004D4D` | Brand teal — headings accents, primary buttons, structure |
-| `--teal-deep` | `#013B3B` | Footer / deep bands |
-| `--teal-900` | `#002E2E` | Darkest text-on-coral (passes AA on coral) |
-| `--ink` | `oklch(0.30 0.03 195)` ≈ `#1E3A38` | Body text on light (~10:1) |
-| `--coral` | `#E78B7E` | Accent — fills, shapes, underlines, hover |
-| `--coral-ink` | `oklch(0.52 0.13 32)` ≈ `#A8432F` | Coral **as text/links** on light — darkened to pass AA (≥4.5:1) |
-| `--cream` | `#FBFCFC` | Text on teal/dark |
+| `--bg` | `#FAF8F4` | Page background — brand cream |
+| `--surface` | `#EEF2EF` | Alt section bands — soft sage |
+| `--surface-warm` | `#F7ECE4` | Warm accent band (session replay) |
+| `--green` | `#2E5650` | Brand green — headings, primary buttons, structure |
+| `--green-deep` | `#234740` | Footer / deep bands |
+| `--green-900` | `#1C3A34` | Darkest — text on coral |
+| `--ink` | `#2C3531` | Heading/strong text (~11:1) |
+| `--ink-soft` | `#4D5B5E` | Body text (~6.7:1) |
+| `--coral` | `#E07A5F` | Accent — fills, shapes, underlines, hover |
+| `--rose` | `#B04646` | Coral **as text/links** on light — darkened to pass AA (~5.2:1) |
+| `--cream` | `#FAF8F4` | Text on green/dark |
+
+Per-category accents (matching the free-library library): Nutrition `#A8442F`, Movement `#8A6D2E`, Stress&Sleep `#4D6788`, Recovery/Hormone `#2E5650`.
 
 **Contrast rules (load-bearing — the live site fails these):**
-- Coral is never used as body text or links on a light background. For coral-coloured text use `--coral-ink`.
-- Coral buttons use `--teal-900` text (≈5.4:1), never white (white-on-coral is ~2.5:1).
-- Primary buttons are teal fill + `--cream` text (~9:1).
+- Coral is never used as body text or links on a light background. For coral-coloured text use `--rose`.
+- Coral buttons use `--green-900` text (~4.2:1, passes large-text AA), never white (white-on-coral is ~3:1).
+- Primary buttons are green fill + `--cream` text (~7.7:1).
 
 ## Typography
 
-Contrast-axis pairing: a high-contrast didone serif against a clean humanist grotesque.
+Contrast-axis pairing: a characterful display serif against a clean geometric-humanist sans.
 
-- **Display / headings:** **Playfair Display** (kept — brand identity), 500–700. Used with restraint: one strong headline per section, `letter-spacing: -0.02em`, `text-wrap: balance`. The dated colour-split headline treatment is dropped — headings are a single colour; emphasis comes from a coral underline mark, not a second colour.
-- **Body / UI:** **Hanken Grotesk** (replaces Nunito Sans), 400–700. Warm, modern, highly legible; carries all body, labels, nav, buttons. Body max width 65ch; `text-wrap: pretty` on long prose.
+- **Display / headings:** **Mercado** (the brand's custom serif, bundled at `fonts/Mercado.otf`). Used with restraint: one strong headline per section, single colour, `letter-spacing: -0.02em`, `text-wrap: balance`. Emphasis comes from a coral underline wash, not a second colour. (This replaces the live site's Playfair Display — the most dated element — and matches the brand's other pages.)
+- **Body / UI:** **Montserrat** (400–700). Carries all body, labels, nav, buttons. Body max width 65ch; `text-wrap: pretty` on long prose.
 - **Scale:** fluid `clamp()`, ratio ≈1.25. H1 `clamp(2.6rem, 6vw, 5rem)` (under the 6rem ceiling). Section headings `clamp(2rem, 4vw, 3.25rem)`.
 - No repeating uppercase eyebrow over sections. Where a section label helps, it is integrated (a coral tick + short label inline), not stamped above every heading.
 
