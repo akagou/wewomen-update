@@ -15,8 +15,8 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 | Layout | Centered single column, every section the same | Asymmetric editorial — hero split, alternating offer rows, event "ticket", featured-guide library |
 | Section labels | Uppercase coral eyebrow over **every** section | Removed; headlines carry the page, one deliberate brand kicker in the hero |
 | Display font | Playfair Display | **Hedvig Letters Serif** (warm, modern, credible) |
-| Body font | Nunito Sans | **Montserrat** |
-| Green / coral | `#004D4D` / `#E78B7E` (live) | `#2E5650` / `#E07A5F` (canonical brand) |
+| Body font | Nunito Sans | **Figtree** (humanist text sans, built for reading) |
+| Green / coral | `#004D4D` / `#E78B7E` (live) | `#1B5A4C` / `#ED7A57` (refined, brighter) |
 | Imagery | Hero only; ~80% text on cream | Real photography in every section |
 | Contrast | Coral text/links/eyebrows fail WCAG (~2.4:1) | All text ≥ 4.5:1 — verified AA |
 | Motion | None | Purposeful reveals + parallax, reduced-motion safe |

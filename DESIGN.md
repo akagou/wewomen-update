@@ -15,12 +15,12 @@ Refined WeWomen palette. Strategy: **restrained** — green + neutral surfaces c
 | `--bg` | `#F8FBF9` | Page background — clean fresh off-white |
 | `--surface` | `#EAF1ED` | Alt section bands — soft sage |
 | `--surface-warm` | `#FBECE4` | Warm coral band (session replay) |
-| `--green` | `#1C5046` | Brand green (richer pine) — headings, primary buttons, structure |
-| `--green-deep` | `#143A33` | Footer / deep bands |
-| `--green-900` | `#0E2B26` | Darkest — text on coral |
+| `--green` | `#1B5A4C` | Brand green (brighter pine) — headings, primary buttons, structure |
+| `--green-deep` | `#15413A` | Footer / deep bands |
+| `--green-900` | `#0F2D27` | Darkest — text on coral |
 | `--ink` | `#21302C` | Heading/strong text (~13:1) |
 | `--ink-soft` | `#45585A` | Body text (~7:1) |
-| `--coral` | `#E07A5F` | Accent — fills, shapes, underlines, hover |
+| `--coral` | `#ED7A57` | Accent (brighter) — fills, shapes, underlines, hover |
 | `--coral-ink` | `#A8472B` | Coral **as text/links** — deep terracotta, same hue (~5.6:1) |
 | `--cream` | `#FAF9F6` | Text on green/dark |
 
@@ -28,8 +28,8 @@ Per-category library accents: Nutrition `#A8442F`, Movement `#8A6D2E`, Stress&Sl
 
 **Contrast rules (load-bearing — the live site fails these):**
 - Coral is never used as body text or links on a light background. For coral-coloured text use `--coral-ink`.
-- Coral buttons use `--green-900` text (~5.1:1), never white (white-on-coral is ~3:1).
-- Primary buttons are green fill + `--cream` text (~8.7:1).
+- Coral buttons use `--green-900` text (~5.3:1), never white (white-on-coral is ~3:1).
+- Primary buttons are green fill + `--cream` text (~7.6:1).
 
 A side-by-side of the current vs refined palette lives in `palette-compare.html`.
 
@@ -38,7 +38,7 @@ A side-by-side of the current vs refined palette lives in `palette-compare.html`
 Contrast-axis pairing: a characterful display serif against a clean geometric-humanist sans.
 
 - **Display / headings:** **Hedvig Letters Serif** (Google Fonts, single weight 400 — all serif text is set to 400 to avoid faux-bold). Warm, modern, credible. Used with restraint: one strong headline per section, single colour, `letter-spacing: -0.015em`, `text-wrap: balance`. Emphasis comes from a coral underline wash, not a second colour. (Replaces the live site's Playfair Display and the rejected Mercado. Easy swaps: **Spectral** for more serious/literary, **Gloock** for more elegant/dramatic.)
-- **Body / UI:** **Montserrat** (400–700). Carries all body, labels, nav, buttons. Body max width 65ch; `text-wrap: pretty` on long prose.
+- **Body / UI:** **Figtree** (400–700). A humanist text sans — high x-height, open, warm, built for reading (replaces Montserrat, which read too display-y / "headery" for body copy). Carries all body, labels, nav, buttons. Body max width 65ch; `text-wrap: pretty` on long prose. Easy swaps: **Hanken Grotesk** (more neutral) or **Source Sans 3** (most utilitarian).
 - **Scale:** fluid `clamp()`, ratio ≈1.25. H1 `clamp(2.6rem, 6vw, 5rem)` (under the 6rem ceiling). Section headings `clamp(2rem, 4vw, 3.25rem)`.
 - No repeating uppercase eyebrow over sections. Where a section label helps, it is integrated (a coral tick + short label inline), not stamped above every heading.
 

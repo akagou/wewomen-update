@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet" />
 <link rel="icon" href="https://wewomen.fit/assets/logo-symbol-BXDgl9-j.png" />
 
 <style>
@@ -19,13 +19,13 @@
   --surface:#eaf1ed;       /* soft sage band */
   --surface-2:#f1f6f3;
   --surface-warm:#fbece4;  /* warm coral band */
-  --green:#1c5046;         /* brand green — richer pine (primary) */
-  --green-deep:#143a33;
-  --green-900:#0e2b26;     /* darkest — text on coral */
+  --green:#1b5a4c;         /* brand green — pine, a touch brighter (primary) */
+  --green-deep:#15413a;
+  --green-900:#0f2d27;     /* darkest — text on coral */
   --ink:#21302c;           /* heading/strong text (~13:1) */
   --ink-soft:#45585a;      /* body (~6.9:1) */
-  --coral:#e07a5f;         /* accent — fills, shapes, hover */
-  --coral-soft:#eeb6a6;
+  --coral:#ed7a57;         /* accent — fills, shapes, hover (brighter) */
+  --coral-soft:#f2b6a1;
   --coral-ink:#a8472b;     /* coral AS TEXT/links — deep terracotta, same hue */
   --cream:#faf9f6;         /* text on green/dark */
   --line:#dee7e1;          /* hairline */
@@ -33,7 +33,7 @@
 
   /* type */
   --serif:"Hedvig Letters Serif",Georgia,serif;
-  --sans:"Montserrat",system-ui,-apple-system,sans-serif;
+  --sans:"Figtree",system-ui,-apple-system,sans-serif;
 
   /* spacing / rhythm */
   --section-y:clamp(5rem,10vw,8.5rem);
@@ -102,11 +102,11 @@ p{text-wrap:pretty}
 .btn svg{transition:transform .35s var(--ease)}
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0)}
-.btn--primary{background:var(--green);color:var(--cream);box-shadow:0 8px 22px -10px rgba(28,80,70,.55)}
-.btn--primary:hover{background:#16443b;box-shadow:0 14px 30px -12px rgba(28,80,70,.6)}
+.btn--primary{background:var(--green);color:var(--cream);box-shadow:0 8px 22px -10px rgba(27,90,76,.55)}
+.btn--primary:hover{background:#16493e;box-shadow:0 14px 30px -12px rgba(27,90,76,.6)}
 .btn--primary:hover svg{transform:translateX(4px)}
 .btn--warm{background:var(--coral);color:var(--green-900)}
-.btn--warm:hover{background:#e6917a}
+.btn--warm:hover{background:#f18d6f}
 .btn--warm:hover svg{transform:translateX(4px)}
 .btn--ghost{background:transparent;color:var(--green);box-shadow:inset 0 0 0 1.5px var(--line-deep)}
 .btn--ghost:hover{background:var(--green);color:var(--cream)}
@@ -142,7 +142,7 @@ p{text-wrap:pretty}
   margin-left:.4rem;background:var(--coral);color:var(--green-900);font-weight:700;
   display:inline-flex;align-items:center;gap:.45rem;
 }
-.nav .live:hover{background:#e6917a;color:var(--green-900)}
+.nav .live:hover{background:#f18d6f;color:var(--green-900)}
 .live .dot{width:8px;height:8px;border-radius:50%;background:var(--green-deep);position:relative}
 .live .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--green-deep);opacity:.5;animation:ping 1.8s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.7);opacity:.6}100%{transform:scale(1.7);opacity:0}}
@@ -298,7 +298,7 @@ blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw
 /* ============================================================= NEWSLETTER */
 .news{position:relative;border-radius:var(--r-xl);overflow:hidden;isolation:isolate}
 .news img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.news .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(16,46,40,.95) 35%,rgba(28,80,70,.72))}
+.news .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(16,46,40,.95) 35%,rgba(27,90,76,.72))}
 .news .inner{padding:clamp(2.6rem,6vw,5rem);max-width:620px;color:var(--cream)}
 .news h2{color:var(--cream);font-size:clamp(2rem,4vw,3rem);margin-bottom:.8rem}
 .news p{color:rgba(251,252,252,.86);font-size:1.1rem;margin-bottom:1.8rem;max-width:46ch}
@@ -638,7 +638,7 @@ html{scroll-behavior:smooth}
                 <span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
               </a>
               <a class="guide c2" href="/resources" data-reveal style="--d:.15s">
-                <span class="ic" style="color:#1c5046;background:#e7efeb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9M21 3l-9 9-3-3"/></svg></span>
+                <span class="ic" style="color:#1b5a4c;background:#e7efeb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9M21 3l-9 9-3-3"/></svg></span>
                 <span><span class="g-t">Recovery</span><span class="g-d">Rest is part of the work</span></span>
                 <span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
               </a>
