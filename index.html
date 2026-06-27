@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WeWomen — Your health, finally understood.</title>
+<meta name="description" content="Evidence-based health education for women navigating change. Session replays, programmes, Amsterdam classes, 1:1 coaching, free guides and corporate wellness." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="icon" href="https://wewomen.fit/assets/logo-symbol-BXDgl9-j.png" />
+
+<style>
+/* ============================================================= TOKENS */
+:root{
+  /* color — evolved from brand teal #004D4D + coral #E78B7E */
+  --bg:#f9fcfc;            /* fresh near-white, whisper of teal */
+  --surface:#e9f2f1;       /* pale teal mist */
+  --surface-2:#f0f7f6;
+  --surface-warm:#fbede6;  /* warm accent band */
+  --teal:#004d4d;
+  --teal-deep:#013b3b;
+  --teal-900:#002e2e;
+  --ink:#1e3a38;           /* body text ~10:1 on --bg */
+  --ink-soft:#436461;      /* muted, still ~4.8:1 */
+  --coral:#e78b7e;
+  --coral-soft:#f2b3a8;
+  --coral-ink:#a8432f;     /* coral AS TEXT on light, ~5:1 */
+  --cream:#fbfcfc;
+  --line:#d4e3e1;
+  --line-deep:#0c5a59;
+
+  /* type */
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+
+  /* spacing / rhythm */
+  --section-y:clamp(5rem,10vw,8.5rem);
+  --gutter:clamp(1.15rem,5vw,2.5rem);
+  --maxw:1180px;
+
+  /* radius */
+  --r-sm:10px;
+  --r:18px;
+  --r-lg:28px;
+  --r-xl:40px;
+
+  /* shadow */
+  --shadow-sm:0 1px 2px rgba(2,46,46,.05), 0 2px 8px rgba(2,46,46,.05);
+  --shadow:0 10px 30px -12px rgba(2,46,46,.18), 0 2px 8px -4px rgba(2,46,46,.10);
+  --shadow-lg:0 30px 70px -28px rgba(2,46,46,.30);
+
+  /* motion */
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --ease-expo:cubic-bezier(.16,1,.3,1);
+
+  /* z-scale */
+  --z-base:1; --z-sticky:100; --z-backdrop:900; --z-menu:1000; --z-toast:1100;
+}
+
+/* ============================================================= RESET */
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  font-size:clamp(1rem,.97rem + .15vw,1.0625rem);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
+input{font:inherit}
+:focus-visible{outline:3px solid var(--coral-ink);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.02em;color:var(--teal);text-wrap:balance}
+p{text-wrap:pretty}
+
+/* ============================================================= LAYOUT */
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:var(--section-y)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--coral-ink);
+  text-transform:uppercase;margin-bottom:1rem;
+}
+.eyebrow::before{content:"";width:1.4rem;height:2px;background:var(--coral);border-radius:2px}
+
+/* ============================================================= BUTTONS */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  min-height:50px;padding:.85rem 1.6rem;border-radius:100px;
+  font-weight:600;font-size:1rem;letter-spacing:-.01em;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .25s var(--ease);
+  will-change:transform;
+}
+.btn svg{transition:transform .35s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn--primary{background:var(--teal);color:var(--cream);box-shadow:0 8px 22px -10px rgba(0,77,77,.6)}
+.btn--primary:hover{background:#003e3e;box-shadow:0 14px 30px -12px rgba(0,77,77,.7)}
+.btn--primary:hover svg{transform:translateX(4px)}
+.btn--warm{background:var(--coral);color:var(--teal-900)}
+.btn--warm:hover{background:#ee9b8f}
+.btn--warm:hover svg{transform:translateX(4px)}
+.btn--ghost{background:transparent;color:var(--teal);box-shadow:inset 0 0 0 1.5px var(--line-deep)}
+.btn--ghost:hover{background:var(--teal);color:var(--cream)}
+.btn--light{background:var(--cream);color:var(--teal)}
+.btn--light:hover{background:#fff}
+
+/* text link with growing underline */
+.tlink{
+  display:inline-flex;align-items:center;gap:.45rem;
+  color:var(--coral-ink);font-weight:600;letter-spacing:-.01em;
+  padding-bottom:2px;position:relative;
+}
+.tlink::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;
+  background:var(--coral);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.tlink:hover::after{transform:scaleX(1)}
+.tlink svg{transition:transform .35s var(--ease)}
+.tlink:hover svg{transform:translateX(4px)}
+
+/* ============================================================= HEADER */
+.site-head{
+  position:fixed;inset:0 0 auto 0;z-index:var(--z-sticky);
+  transition:background .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.site-head.scrolled{background:rgba(249,252,252,.88);backdrop-filter:blur(12px);border-color:var(--line);box-shadow:var(--shadow-sm)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--teal);letter-spacing:-.01em}
+.brand img{width:34px;height:34px;border-radius:9px}
+.nav{display:flex;align-items:center;gap:.35rem}
+.nav a{padding:.5rem .8rem;border-radius:100px;font-weight:500;font-size:.97rem;color:var(--ink);transition:color .2s,background .2s}
+.nav a:hover{color:var(--teal);background:var(--surface)}
+.nav .live{
+  margin-left:.4rem;background:var(--coral);color:var(--teal-900);font-weight:700;
+  display:inline-flex;align-items:center;gap:.45rem;
+}
+.nav .live:hover{background:#ee9b8f;color:var(--teal-900)}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--teal-deep);position:relative}
+.live .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--teal-deep);opacity:.5;animation:ping 1.8s var(--ease) infinite}
+@keyframes ping{0%{transform:scale(.7);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+.menu-btn{display:none;width:46px;height:46px;border-radius:12px;align-items:center;justify-content:center;color:var(--teal)}
+.menu-btn:hover{background:var(--surface)}
+
+/* mobile dialog menu */
+dialog.menu{
+  border:none;padding:0;margin:0;width:min(420px,92vw);max-width:none;height:100dvh;max-height:100dvh;
+  margin-left:auto;background:var(--bg);box-shadow:var(--shadow-lg);
+}
+dialog.menu::backdrop{background:rgba(1,40,40,.45);backdrop-filter:blur(3px)}
+.menu-inner{display:flex;flex-direction:column;height:100%;padding:1.3rem var(--gutter)}
+.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.menu-links{display:flex;flex-direction:column;gap:.2rem}
+.menu-links a{font-family:var(--serif);font-size:1.6rem;color:var(--teal);padding:.7rem 0;border-bottom:1px solid var(--line)}
+.menu-foot{margin-top:auto;padding-top:1.4rem}
+
+/* ============================================================= HERO */
+.hero{position:relative;padding-top:clamp(7rem,14vw,10rem);padding-bottom:var(--section-y)}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;color:var(--coral-ink);margin-bottom:1.4rem;font-size:1.02rem}
+.hero-kicker .tick{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--coral);color:var(--teal-900);align-items:center;justify-content:center}
+.hero h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:600;margin-bottom:1.3rem}
+.hero h1 .u{position:relative;white-space:nowrap}
+.hero h1 .u::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.34em;background:var(--coral);opacity:.42;border-radius:4px;z-index:-1}
+.hero .lede{font-size:clamp(1.1rem,1.05rem + .4vw,1.3rem);color:var(--ink-soft);max-width:34ch;margin-bottom:2rem}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem;margin-bottom:2.2rem}
+.hero-trust{display:flex;align-items:center;gap:.85rem;color:var(--ink-soft);font-size:.95rem}
+.hero-trust .av{display:flex}
+.hero-trust .av img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2.5px solid var(--bg);margin-left:-12px;box-shadow:var(--shadow-sm)}
+.hero-trust .av img:first-child{margin-left:0}
+.hero-trust b{color:var(--ink);font-weight:700}
+
+.hero-media{position:relative}
+.hero-media .frame{
+  position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:5/6;box-shadow:var(--shadow-lg);
+  z-index:2;
+}
+.hero-media .frame img{width:100%;height:100%;object-fit:cover}
+.hero-blob{position:absolute;width:62%;aspect-ratio:1;border-radius:48% 52% 60% 40%/55% 45% 55% 45%;
+  background:radial-gradient(circle at 30% 30%, var(--coral-soft), var(--coral));
+  filter:blur(2px);opacity:.55;right:-7%;bottom:-7%;z-index:1}
+.hero-ring{position:absolute;width:38%;aspect-ratio:1;border-radius:50%;border:2px solid var(--coral);opacity:.5;left:-9%;top:-7%;z-index:1}
+.hero-chip{
+  position:absolute;left:-1.4rem;bottom:2.2rem;z-index:3;background:var(--cream);
+  box-shadow:var(--shadow);border-radius:var(--r);padding:.85rem 1.1rem;display:flex;align-items:center;gap:.7rem;
+  max-width:230px;
+}
+.hero-chip .ic{width:42px;height:42px;border-radius:12px;background:var(--surface);display:grid;place-items:center;color:var(--teal);flex:none}
+.hero-chip b{display:block;color:var(--teal);font-size:.95rem}
+.hero-chip span{font-size:.82rem;color:var(--ink-soft);line-height:1.35}
+
+/* ============================================================= EVENT BANNER */
+.event{background:var(--surface);border-radius:var(--r-lg);padding:clamp(1.5rem,3.5vw,2.4rem);display:grid;
+  grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(1.2rem,3vw,2.4rem);box-shadow:var(--shadow-sm);
+  position:relative;overflow:hidden}
+.event::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:var(--coral);opacity:.08}
+.date-block{text-align:center;background:var(--cream);border-radius:var(--r);padding:.9rem 1.3rem;box-shadow:var(--shadow-sm);min-width:104px}
+.date-block .d{font-family:var(--serif);font-size:2.8rem;line-height:1;color:var(--teal);font-weight:600}
+.date-block .m{font-weight:700;letter-spacing:.12em;color:var(--coral-ink);font-size:.85rem;margin-top:.25rem}
+.event-body .tag{font-weight:700;color:var(--coral-ink);font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.35rem}
+.event-body h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:.45rem}
+.event-body p{color:var(--ink-soft);font-size:.98rem;max-width:60ch}
+.event-body p b{color:var(--ink);font-weight:600}
+.event .act{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem}
+.event .price{font-weight:700;color:var(--teal);font-size:1.05rem}
+
+/* ============================================================= SPLIT / EDITORIAL ROWS */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.split.rev .media{order:2}
+.media-frame{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3.4;box-shadow:var(--shadow)}
+.media-frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.media-frame:hover img{transform:scale(1.04)}
+.media-deco{position:absolute;inset:auto -14px -14px auto;width:120px;height:120px;border-radius:var(--r);background:var(--coral);opacity:.12;z-index:-1}
+.lead h2{font-size:clamp(2rem,4vw,3.1rem);margin-bottom:1.1rem}
+.lead p{color:var(--ink-soft);font-size:1.08rem;max-width:54ch;margin-bottom:1.5rem}
+.lead p + p{margin-top:-.6rem}
+
+/* offers */
+.offers-head{max-width:46ch;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.offers-head h2{font-size:clamp(2.2rem,4.5vw,3.4rem);margin-bottom:.8rem}
+.offers-head p{color:var(--ink-soft);font-size:1.15rem}
+.offer{margin-bottom:clamp(3rem,6vw,5.5rem)}
+.offer:last-child{margin-bottom:0}
+.offer .tag{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;color:var(--teal);background:var(--surface);
+  padding:.4rem .9rem;border-radius:100px;font-size:.9rem;margin-bottom:1rem}
+.offer.coral .tag{color:var(--coral-ink);background:var(--surface-warm)}
+.offer h3{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--teal);margin-bottom:.9rem;line-height:1.12}
+.offer p{color:var(--ink-soft);font-size:1.08rem;max-width:50ch;margin-bottom:1.4rem}
+.checks{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.7rem 1.5rem;margin-bottom:1.7rem}
+.checks li{display:flex;align-items:flex-start;gap:.6rem;color:var(--ink);font-weight:500}
+.checks svg{flex:none;color:var(--coral-ink);margin-top:.2rem}
+
+/* ============================================================= TESTIMONIALS */
+.quotes{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.quotes .photo{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/4.6;box-shadow:var(--shadow-lg)}
+.quotes .photo img{width:100%;height:100%;object-fit:cover}
+.quotes .photo .badge{position:absolute;left:1rem;bottom:1rem;background:rgba(1,40,40,.62);backdrop-filter:blur(6px);
+  color:var(--cream);padding:.55rem .95rem;border-radius:100px;font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+.qmark{font-family:var(--serif);font-size:5rem;line-height:.6;color:var(--coral);opacity:.5;height:2.2rem;display:block}
+blockquote{font-family:var(--serif);font-weight:500;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.4;color:var(--teal);margin:0 0 1rem}
+.q-row{padding:1.6rem 0}
+.q-row + .q-row{border-top:1px solid var(--line)}
+.q-row:first-of-type{padding-top:0}
+.cite{display:flex;align-items:center;gap:.7rem;color:var(--ink-soft)}
+.cite b{color:var(--ink);font-family:var(--sans);font-weight:700}
+.cite .sep{width:5px;height:5px;border-radius:50%;background:var(--coral)}
+
+/* ============================================================= LIBRARY */
+.library{background:var(--surface);border-radius:var(--r-xl)}
+.library .inner{padding:clamp(2.2rem,5vw,4rem)}
+.lib-head{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem}
+.lib-head .t{max-width:46ch}
+.lib-head h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:.7rem}
+.lib-head p{color:var(--ink-soft);font-size:1.08rem}
+.lib-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.4rem,3vw,2.2rem)}
+.guide-featured{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:340px;display:flex;align-items:flex-end;
+  box-shadow:var(--shadow);color:var(--cream)}
+.guide-featured img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.guide-featured .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,40,40,0) 30%,rgba(1,40,40,.86))}
+.guide-featured .c{position:relative;padding:1.8rem}
+.guide-featured .pill{display:inline-block;background:var(--coral);color:var(--teal-900);font-weight:700;font-size:.78rem;
+  letter-spacing:.04em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:.8rem}
+.guide-featured h3{color:var(--cream);font-size:1.7rem;margin-bottom:.5rem}
+.guide-featured p{color:rgba(251,252,252,.85);max-width:42ch;margin-bottom:1.1rem}
+.guide-list{display:flex;flex-direction:column;gap:.6rem}
+.guide{display:flex;align-items:center;gap:1rem;background:var(--cream);border-radius:var(--r);padding:1rem 1.15rem;
+  box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.guide:hover{transform:translateX(5px);box-shadow:var(--shadow)}
+.guide .ic{flex:none;width:46px;height:46px;border-radius:13px;background:var(--surface);display:grid;place-items:center;color:var(--teal)}
+.guide.c2 .ic{background:var(--surface-warm);color:var(--coral-ink)}
+.guide .g-t{display:block;font-weight:700;color:var(--teal);font-size:1.05rem;line-height:1.2}
+.guide .g-d{display:block;font-size:.9rem;color:var(--ink-soft);margin-top:.1rem}
+.guide .arr{margin-left:auto;color:var(--coral-ink);transition:transform .35s var(--ease)}
+.guide:hover .arr{transform:translateX(4px)}
+.lib-cta{margin-top:2.5rem;display:flex;justify-content:center}
+
+/* ============================================================= REPLAY */
+.replay{background:var(--surface-warm);border-radius:var(--r-xl)}
+.replay .inner{padding:clamp(2rem,4.5vw,3.5rem);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.video{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16/10;box-shadow:var(--shadow-lg)}
+.video img{width:100%;height:100%;object-fit:cover}
+.video .play{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:rgba(251,252,252,.92);
+  display:grid;place-items:center;color:var(--teal);box-shadow:var(--shadow);transition:transform .35s var(--ease),background .25s}
+.video:hover .play{transform:scale(1.08);background:#fff}
+.video .dur{position:absolute;right:1rem;bottom:1rem;background:rgba(1,40,40,.7);color:var(--cream);font-weight:600;
+  font-size:.85rem;padding:.4rem .8rem;border-radius:100px}
+.replay .t .tag{color:var(--coral-ink);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;margin-bottom:.7rem;display:block}
+.replay .t h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:1rem}
+.replay .t p{color:var(--ink-soft);font-size:1.1rem;max-width:46ch;margin-bottom:1.6rem}
+
+/* ============================================================= NEWSLETTER */
+.news{position:relative;border-radius:var(--r-xl);overflow:hidden;isolation:isolate}
+.news img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.news .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(0,52,52,.94) 35%,rgba(0,77,77,.7))}
+.news .inner{padding:clamp(2.6rem,6vw,5rem);max-width:620px;color:var(--cream)}
+.news h2{color:var(--cream);font-size:clamp(2rem,4vw,3rem);margin-bottom:.8rem}
+.news p{color:rgba(251,252,252,.86);font-size:1.1rem;margin-bottom:1.8rem;max-width:46ch}
+.nform{display:flex;gap:.7rem;flex-wrap:wrap}
+.nform .field{flex:1;min-width:230px}
+.nform label{display:block;font-size:.82rem;font-weight:600;color:rgba(251,252,252,.8);margin-bottom:.4rem;letter-spacing:.02em}
+.nform input{width:100%;background:var(--cream);color:var(--ink);border:2px solid transparent;border-radius:100px;
+  padding:.9rem 1.3rem;min-height:50px}
+.nform input::placeholder{color:#6f8d8a}
+.nform input:focus-visible{outline:none;border-color:var(--coral)}
+.nform .btn{align-self:flex-end}
+.news .fine{margin-top:1rem;font-size:.86rem;color:rgba(251,252,252,.7)}
+.news .ok{display:none;margin-top:1.2rem;background:rgba(251,252,252,.14);border:1px solid rgba(251,252,252,.3);
+  border-radius:var(--r);padding:1rem 1.2rem;color:var(--cream);font-weight:500}
+.news .ok.show{display:block}
+
+/* ============================================================= FOOTER */
+.foot{background:var(--teal-deep);color:rgba(251,252,252,.78);padding-block:clamp(3rem,6vw,4.5rem) 2rem;margin-top:var(--section-y)}
+.foot a{transition:color .2s}
+.foot a:hover{color:var(--cream)}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:2.5rem}
+.foot .logo{display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem}
+.foot .logo img{width:44px;height:44px;border-radius:11px}
+.foot .logo b{font-family:var(--serif);font-size:1.5rem;color:var(--cream);font-weight:600}
+.foot .tagline{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--coral-soft);max-width:24ch}
+.foot h4{color:var(--cream);font-family:var(--sans);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.1rem}
+.foot ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:.7rem}
+.foot .contact a{display:flex;align-items:center;gap:.7rem}
+.foot .contact svg{color:var(--coral-soft);flex:none}
+.foot-bottom{border-top:1px solid rgba(251,252,252,.14);margin-top:3rem;padding-top:1.5rem;display:flex;
+  flex-wrap:wrap;gap:1rem;justify-content:space-between;font-size:.88rem;color:rgba(251,252,252,.6)}
+
+/* ============================================================= REVEAL MOTION */
+.js-anim [data-reveal]{opacity:0;transform:translateY(22px);
+  transition:opacity .8s var(--ease-expo),transform .8s var(--ease-expo);transition-delay:var(--d,0s)}
+.js-anim [data-reveal].in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .js-anim [data-reveal]{opacity:1!important;transform:none!important}
+}
+html{scroll-behavior:smooth}
+
+/* ============================================================= RESPONSIVE */
+@media (max-width:1000px){
+  .nav{display:none}
+  .menu-btn{display:flex}
+  .hero-grid{grid-template-columns:1fr;gap:clamp(2.5rem,7vw,3.5rem)}
+  .hero .lede{max-width:46ch}
+  .hero-media{max-width:480px;margin-inline:auto;width:100%}
+  .hero-blob{right:-2%;width:52%}
+  .hero-ring{left:-3%}
+  .event{grid-template-columns:auto 1fr;gap:1.3rem}
+  .event .act{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between}
+  .quotes{grid-template-columns:1fr;gap:2.2rem}
+  .quotes .photo{aspect-ratio:16/12;max-height:420px}
+  .lib-grid{grid-template-columns:1fr}
+  .replay .inner{grid-template-columns:1fr;gap:1.8rem}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot .brandcol{grid-column:1/-1}
+}
+@media (max-width:640px){
+  .split{grid-template-columns:1fr;gap:1.8rem}
+  .split.rev .media{order:0}
+  .checks{grid-template-columns:1fr}
+  .event{grid-template-columns:1fr;text-align:left}
+  .event .act{flex-direction:column;align-items:stretch}
+  .event .act .btn{width:100%}
+  .date-block{justify-self:start;display:flex;align-items:baseline;gap:.6rem;min-width:0;padding:.6rem 1rem}
+  .date-block .m{margin-top:0}
+  .hero-chip{left:auto;right:.6rem}
+  .foot-grid{grid-template-columns:1fr}
+  .nform .btn{width:100%}
+  .foot-bottom{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================================================== HEADER -->
+<header class="site-head" id="head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="WeWomen home">
+      <img src="https://wewomen.fit/assets/logo-symbol-BXDgl9-j.png" alt="" />
+      <span>WeWomen</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/for-you">For You</a>
+      <a href="/corporate">Corporate</a>
+      <a href="/resources">Resources</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a class="nav-link live btn" href="/for-you#live-event"><span class="dot"></span>Live · Jul 2</a>
+    </nav>
+    <button class="menu-btn" id="menuOpen" aria-label="Open menu" aria-haspopup="dialog">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<dialog class="menu" id="menu">
+  <div class="menu-inner">
+    <div class="menu-top">
+      <span class="brand"><img src="https://wewomen.fit/assets/logo-symbol-BXDgl9-j.png" alt=""/> WeWomen</span>
+      <button class="menu-btn" id="menuClose" aria-label="Close menu" style="display:flex">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="menu-links" aria-label="Mobile">
+      <a href="/for-you">For You</a>
+      <a href="/corporate">Corporate</a>
+      <a href="/resources">Resources</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="menu-foot">
+      <a class="btn btn--warm" href="/for-you#live-event" style="width:100%"><span class="dot"></span>Live in Amsterdam · Jul 2</a>
+    </div>
+  </div>
+</dialog>
+
+<main id="top">
+
+  <!-- ===================================================== HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="hero-kicker" data-reveal>
+          <span class="tick" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          Your health, finally understood.
+        </span>
+        <h1 data-reveal style="--d:.06s">Your body is changing. We help you <span class="u">understand it.</span></h1>
+        <p class="lede" data-reveal style="--d:.12s">Evidence-based health education for women — whether you're preparing for what's ahead or already navigating change.</p>
+        <div class="hero-cta" data-reveal style="--d:.18s">
+          <a class="btn btn--primary" href="/for-you">Explore programmes
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="tlink" href="/corporate">For organisations
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="hero-trust" data-reveal style="--d:.24s">
+          <span class="av">
+            <img src="https://wewomen.fit/assets/group-laughing-DQ4UeSiy.jpg" alt="" style="object-position:60% 20%"/>
+            <img src="https://images.unsplash.com/photo-1599447421321-1c96150f0f6b?auto=format&fit=crop&w=120&h=120&q=70" alt=""/>
+            <img src="https://images.unsplash.com/photo-1518310952931-b1de897abd40?auto=format&fit=crop&w=120&h=120&q=70" alt=""/>
+          </span>
+          <span><b>Built by women, for women 35+</b><br>Trusted, evidence-based, never clinical.</span>
+        </div>
+      </div>
+
+      <div class="hero-media" data-reveal style="--d:.1s">
+        <span class="hero-ring" aria-hidden="true"></span>
+        <span class="hero-blob" aria-hidden="true"></span>
+        <div class="frame" id="heroFrame">
+          <img src="https://wewomen.fit/assets/hero-Cj-JjZgX.jpg" alt="Two women laughing together after a training session, one resting on the other's shoulder" />
+        </div>
+        <div class="hero-chip" aria-hidden="true">
+          <span class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 4.5 7 5c2 .25 3.5 2 5 4 1.5-2 3-3.75 5-4 4-.5 6.5 3.5 4.5 7.5C19 16.65 12 21 12 21z" stroke-linejoin="round"/></svg>
+          </span>
+          <div><b>Hormones · Sleep · Energy</b><span>The whole picture, finally connected.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== EVENT BANNER -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="event" data-reveal>
+        <div class="date-block" aria-hidden="true">
+          <div class="d">02</div>
+          <div class="m">JUL</div>
+        </div>
+        <div class="event-body">
+          <div class="tag">Live event · Amsterdam</div>
+          <h2>Join us live in Amsterdam</h2>
+          <p>An evening with Deborah, Sarah &amp; Stef — drinks, conversation, and practical insights on hormones, sleep and energy. <b>Thursday 2 July, 19:00–21:00</b> at Stijl Department, IJburg, Amsterdam.</p>
+        </div>
+        <div class="act">
+          <span class="price">€25</span>
+          <a class="btn btn--warm" href="/for-you#live-event">Learn more
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== HEAD START -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <div class="media" data-reveal>
+        <div class="media-frame">
+          <span class="media-deco" aria-hidden="true"></span>
+          <img src="https://images.unsplash.com/photo-1772450014685-369473acebc2?auto=format&fit=crop&w=1100&q=72" alt="A woman pausing with quiet focus between sets in a gym" />
+        </div>
+      </div>
+      <div class="lead" data-reveal style="--d:.08s">
+        <h2>Your body after 35 — whether you've noticed changes or not.</h2>
+        <p>Maybe the energy dipped, the sleep went sideways, or your body stopped playing by the old rules. Or maybe everything still feels fine — and that's the perfect time to get ahead of it.</p>
+        <p>Either way, hormones, stress, training and nutrition are all connected. And most women are never told how. Consider this your missing manual.</p>
+        <a class="tlink" href="https://wewomen.podia.com/understanding-your-body-after-35">Get the session replay
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== OFFERS -->
+  <section class="section" id="offers" style="padding-top:0">
+    <div class="wrap">
+      <div class="offers-head" data-reveal>
+        <h2>How can we help?</h2>
+        <p>Whether you're looking for personal support or want to bring change to your workplace — we've got you.</p>
+      </div>
+
+      <div class="offer split">
+        <div class="media" data-reveal>
+          <div class="media-frame">
+            <span class="media-deco" aria-hidden="true"></span>
+            <img src="https://images.unsplash.com/photo-1599447421321-1c96150f0f6b?auto=format&fit=crop&w=1100&q=72" alt="Women moving through a bright, sunlit studio class" />
+          </div>
+        </div>
+        <div data-reveal style="--d:.08s">
+          <span class="tag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 4.5 7 5c2 .25 3.5 2 5 4 1.5-2 3-3.75 5-4 4-.5 6.5 3.5 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
+            For You
+          </span>
+          <h3>Support that meets you exactly where you are.</h3>
+          <p>Session replays, online programmes, Amsterdam classes, and 1:1 coaching — designed to meet you exactly where you are.</p>
+          <ul class="checks">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Session replays</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Online programmes</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Amsterdam classes</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>1:1 coaching</li>
+          </ul>
+          <a class="btn btn--primary" href="/for-you">Explore programmes
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="offer coral split rev">
+        <div class="media" data-reveal>
+          <div class="media-frame">
+            <span class="media-deco" aria-hidden="true" style="background:var(--teal);opacity:.1"></span>
+            <img src="https://images.unsplash.com/photo-1518310952931-b1de897abd40?auto=format&fit=crop&w=1100&q=72" alt="A diverse group of women in a movement class, mid-pose together" />
+          </div>
+        </div>
+        <div data-reveal style="--d:.08s">
+          <span class="tag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg>
+            For Organisations
+          </span>
+          <h3>Workplace wellness that actually lands.</h3>
+          <p>Evidence-based workplace wellness programmes that support your female workforce and create an inclusive culture.</p>
+          <ul class="checks">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Workshops &amp; talks</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Manager guidance</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Inclusive policy</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Ongoing support</li>
+          </ul>
+          <a class="btn btn--ghost" href="/corporate">Learn more
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== TESTIMONIALS -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap quotes">
+      <div class="photo" data-reveal>
+        <img src="https://wewomen.fit/assets/group-laughing-DQ4UeSiy.jpg" alt="Four women standing together, smiling, after a workout" />
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.3l-6.18 3.7 1.64-7.03L2 9.24l7.19-.61L12 2l2.81 6.63 7.19.61-5.46 4.73L18.18 21z"/></svg>Real women · real change</span>
+      </div>
+      <div data-reveal style="--d:.08s">
+        <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:1.4rem">What women are saying</h2>
+        <div class="q-row">
+          <span class="qmark" aria-hidden="true">“</span>
+          <blockquote>I finally feel like I recognize myself again. My confidence has shifted massively — I no longer doubt what I'm capable of, and I know my body is strong and resilient.</blockquote>
+          <div class="cite"><b>Maria</b><span class="sep"></span>38 · Personal Training</div>
+        </div>
+        <div class="q-row">
+          <span class="qmark" aria-hidden="true">“</span>
+          <blockquote>In just six weeks, I've seen incredible results. Sarah and Stef have created the space I honestly longed for — a holistic environment where I'm encouraged and guided to become stronger.</blockquote>
+          <div class="cite"><b>Lisa</b><span class="sep"></span>43 · In-Person Client</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== LIBRARY -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="library" data-reveal>
+        <div class="inner">
+          <div class="lib-head">
+            <div class="t">
+              <h2>Free resources — yours to keep</h2>
+              <p>Download our guides on hormone health, nutrition, movement, stress, sleep, and recovery. Free, practical, and built for women navigating change.</p>
+            </div>
+          </div>
+          <div class="lib-grid">
+            <a class="guide-featured" href="/resources" data-reveal>
+              <img src="https://images.unsplash.com/photo-1606791422814-b32c705e3e2f?auto=format&fit=crop&w=1100&q=72" alt="A bright, nutritious meal styled on a table" />
+              <span class="scrim" aria-hidden="true"></span>
+              <div class="c">
+                <span class="pill">Most downloaded</span>
+                <h3>Hormone health, made simple</h3>
+                <p>The plain-English guide to what's happening, why, and what actually helps.</p>
+                <span class="tlink" style="color:var(--coral-soft)">Download free
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 12l5 5 5-5M5 21h14"/></svg>
+                </span>
+              </div>
+            </a>
+            <div class="guide-list">
+              <a class="guide" href="/resources" data-reveal>
+                <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></span>
+                <span><span class="g-t">Nutrition</span><span class="g-d">Eat for energy, not rules</span></span>
+                <span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+              <a class="guide c2" href="/resources" data-reveal style="--d:.05s">
+                <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v16M18 4v16M4 9h4M16 15h4M9 12h6"/></svg></span>
+                <span><span class="g-t">Movement</span><span class="g-d">Train with your body, not against it</span></span>
+                <span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+              <a class="guide" href="/resources" data-reveal style="--d:.1s">
+                <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c-4 0-9-1-9-9z"/></svg></span>
+                <span><span class="g-t">Stress &amp; Sleep</span><span class="g-d">Wind down, properly</span></span>
+                <span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+              <a class="guide c2" href="/resources" data-reveal style="--d:.15s">
+                <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9M21 3l-9 9-3-3"/></svg></span>
+                <span><span class="g-t">Recovery</span><span class="g-d">Rest is part of the work</span></span>
+                <span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+          <div class="lib-cta">
+            <a class="btn btn--ghost" href="/resources">Explore the library
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== REPLAY -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="replay" data-reveal>
+        <div class="inner">
+          <a class="video" href="https://wewomen.podia.com/understanding-your-body-after-35" aria-label="Watch the session replay">
+            <img src="https://wewomen.fit/assets/hero-Cj-JjZgX.jpg" alt="" style="object-position:50% 25%" />
+            <span class="play" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="dur">45 min</span>
+          </a>
+          <div class="t" data-reveal style="--d:.08s">
+            <span class="tag">Available now</span>
+            <h2>Understanding Your Body After 35 — Session Replay</h2>
+            <p>Catch up on our 45-minute evidence-based session with Sarah &amp; Stef. No symptoms required. Just curiosity.</p>
+            <a class="btn btn--warm" href="https://wewomen.podia.com/understanding-your-body-after-35">Get the replay
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== NEWSLETTER -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="news" data-reveal>
+        <img class="bg" src="https://images.unsplash.com/photo-1556833232-52da3e4bd5d8?auto=format&fit=crop&w=1600&q=72" alt="" />
+        <span class="scrim" aria-hidden="true"></span>
+        <div class="inner">
+          <h2>Stay in the loop.</h2>
+          <p>New programmes, upcoming sessions and the occasional piece of advice worth reading. No noise — just what matters.</p>
+          <form class="nform" id="nform" novalidate>
+            <div class="field">
+              <label for="nemail">Email address</label>
+              <input id="nemail" type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+            <button class="btn btn--warm" type="submit">Sign me up</button>
+          </form>
+          <p class="fine">We respect your inbox. Unsubscribe anytime.</p>
+          <div class="ok" id="nok" role="status">Thanks — you're on the list. Look out for a welcome note in your inbox.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================================================== FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brandcol">
+        <div class="logo"><img src="https://wewomen.fit/assets/logo-symbol-BXDgl9-j.png" alt="" /><b>WeWomen</b></div>
+        <p class="tagline">Your Health, Finally Understood.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="/for-you">For You</a></li>
+          <li><a href="/corporate">Corporate</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@wewomen.fit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>hello@wewomen.fit</a></li>
+          <li><a href="https://wa.me/31613466379"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.38 8.5 8.5 0 0 1-3.8-.9L3 20l1.02-5.2A8.38 8.38 0 1 1 21 11.5z" stroke-linejoin="round"/></svg>+31 6 13 46 63 79</a></li>
+          <li><a href="https://instagram.com/wewomen.fit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@wewomen.fit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> WeWomen. All rights reserved.</span>
+      <span>Evidence-based health education for women.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* header scroll state */
+  var head = document.getElementById('head');
+  var onScroll = function(){ head.classList.toggle('scrolled', window.scrollY > 24); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* mobile menu (native dialog) */
+  var menu = document.getElementById('menu');
+  var openB = document.getElementById('menuOpen');
+  var closeB = document.getElementById('menuClose');
+  if (menu && menu.showModal){
+    openB.addEventListener('click', function(){ menu.showModal(); });
+    closeB.addEventListener('click', function(){ menu.close(); });
+    menu.addEventListener('click', function(e){ if (e.target === menu) menu.close(); });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.close(); }); });
+  }
+
+  /* reveals — content is visible by default; only opt into hidden+animate when allowed */
+  if (!reduce && 'IntersectionObserver' in window){
+    var els = [].slice.call(document.querySelectorAll('[data-reveal]'));
+    document.documentElement.classList.add('js-anim');
+    var reveal = function(el){ el.classList.add('in'); };
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ reveal(en.target); io.unobserve(en.target); }
+      });
+    }, {threshold:0, rootMargin:'0px 0px -5% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+    /* failsafe: never let content stay hidden (headless renderers / missed callbacks) */
+    window.addEventListener('load', function(){ setTimeout(function(){ els.forEach(reveal); }, 1400); });
+  }
+
+  /* gentle hero parallax */
+  var frame = document.getElementById('heroFrame');
+  if (frame && !reduce){
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY;
+        if (y < 900) frame.style.transform = 'translateY(' + (y * 0.045) + 'px)';
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+
+  /* newsletter feedback */
+  var form = document.getElementById('nform');
+  if (form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = document.getElementById('nemail');
+      if (!email.value || email.value.indexOf('@') === -1){ email.focus(); email.reportValidity && email.reportValidity(); return; }
+      document.getElementById('nok').classList.add('show');
+      form.reset();
+    });
+  }
+
+  /* year */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
