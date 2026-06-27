@@ -1,6 +1,6 @@
 # Design
 
-The redesign **keeps the brand's equity** and modernizes everything around it: asymmetric editorial layouts (no centered monotony), real photography below the fold, fixed contrast, and purposeful motion. It is skinned to the **canonical WeWomen brand** — Mercado serif, green `#2E5650`, Montserrat, coral `#E07A5F` — so it matches `free-library.html` and the funnel mockup, NOT the older live Lovable homepage (which still runs Playfair + `#004D4D` teal). The goal is "they redesigned it," not "is this still the same brand?"
+The redesign **keeps the brand's equity** and modernizes everything around it: asymmetric editorial layouts (no centered monotony), real photography below the fold, fixed contrast, and purposeful motion. It uses the **canonical WeWomen colour palette** (green `#2E5650`, coral `#E07A5F`, cream) shared with `free-library.html` and the funnel mockup. Display type is **Hedvig Letters Serif** — Mercado was tried and cut as too decorative; note the free-library page still runs Mercado, so the display face should be propagated there for full consistency. The goal is "they redesigned it," not "is this still the same brand?"
 
 ## Theme
 
@@ -35,7 +35,7 @@ Per-category accents (matching the free-library library): Nutrition `#A8442F`, M
 
 Contrast-axis pairing: a characterful display serif against a clean geometric-humanist sans.
 
-- **Display / headings:** **Mercado** (the brand's custom serif, bundled at `fonts/Mercado.otf`). Used with restraint: one strong headline per section, single colour, `letter-spacing: -0.02em`, `text-wrap: balance`. Emphasis comes from a coral underline wash, not a second colour. (This replaces the live site's Playfair Display — the most dated element — and matches the brand's other pages.)
+- **Display / headings:** **Hedvig Letters Serif** (Google Fonts, single weight 400 — all serif text is set to 400 to avoid faux-bold). Warm, modern, credible. Used with restraint: one strong headline per section, single colour, `letter-spacing: -0.015em`, `text-wrap: balance`. Emphasis comes from a coral underline wash, not a second colour. (Replaces the live site's Playfair Display and the rejected Mercado. Easy swaps: **Spectral** for more serious/literary, **Gloock** for more elegant/dramatic.)
 - **Body / UI:** **Montserrat** (400–700). Carries all body, labels, nav, buttons. Body max width 65ch; `text-wrap: pretty` on long prose.
 - **Scale:** fluid `clamp()`, ratio ≈1.25. H1 `clamp(2.6rem, 6vw, 5rem)` (under the 6rem ceiling). Section headings `clamp(2rem, 4vw, 3.25rem)`.
 - No repeating uppercase eyebrow over sections. Where a section label helps, it is integrated (a coral tick + short label inline), not stamped above every heading.

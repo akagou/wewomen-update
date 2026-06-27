@@ -8,18 +8,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
 <link rel="icon" href="https://wewomen.fit/assets/logo-symbol-BXDgl9-j.png" />
 
 <style>
-/* ============================================================= FONTS */
-@font-face{
-  font-family:"Mercado";
-  src:url("fonts/Mercado.otf") format("opentype");
-  font-weight:400 700;
-  font-display:swap;
-}
-
 /* ============================================================= TOKENS */
 :root{
   /* color — WeWomen canonical brand (matches free-library + funnel) */
@@ -40,7 +32,7 @@
   --line-deep:#3f5f57;
 
   /* type */
-  --serif:"Mercado",Georgia,serif;
+  --serif:"Hedvig Letters Serif",Georgia,serif;
   --sans:"Montserrat",system-ui,-apple-system,sans-serif;
 
   /* spacing / rhythm */
@@ -86,7 +78,7 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 input{font:inherit}
 :focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:4px}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.02em;color:var(--green);text-wrap:balance}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.015em;color:var(--green);text-wrap:balance}
 p{text-wrap:pretty}
 
 /* ============================================================= LAYOUT */
@@ -141,7 +133,7 @@ p{text-wrap:pretty}
 }
 .site-head.scrolled{background:rgba(250,248,244,.86);backdrop-filter:blur(12px);border-color:var(--line);box-shadow:var(--shadow-sm)}
 .site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
-.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--green);letter-spacing:-.01em}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:400;font-size:1.35rem;color:var(--green);letter-spacing:-.01em}
 .brand img{width:34px;height:34px;border-radius:9px}
 .nav{display:flex;align-items:center;gap:.35rem}
 .nav a{padding:.5rem .8rem;border-radius:100px;font-weight:500;font-size:.97rem;color:var(--ink);transition:color .2s,background .2s}
@@ -174,7 +166,7 @@ dialog.menu::backdrop{background:rgba(28,58,52,.45);backdrop-filter:blur(3px)}
 .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .hero-kicker{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;color:var(--rose);margin-bottom:1.4rem;font-size:1.02rem}
 .hero-kicker .tick{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--coral);color:var(--green-900);align-items:center;justify-content:center}
-.hero h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:600;margin-bottom:1.3rem}
+.hero h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:400;margin-bottom:1.3rem}
 .hero h1 .u{position:relative;white-space:nowrap}
 .hero h1 .u::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.34em;background:var(--coral);opacity:.42;border-radius:4px;z-index:-1}
 .hero .lede{font-size:clamp(1.1rem,1.05rem + .4vw,1.3rem);color:var(--ink-soft);max-width:34ch;margin-bottom:2rem}
@@ -210,7 +202,7 @@ dialog.menu::backdrop{background:rgba(28,58,52,.45);backdrop-filter:blur(3px)}
   position:relative;overflow:hidden}
 .event::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:var(--coral);opacity:.08}
 .date-block{text-align:center;background:var(--cream);border-radius:var(--r);padding:.9rem 1.3rem;box-shadow:var(--shadow-sm);min-width:104px}
-.date-block .d{font-family:var(--serif);font-size:2.8rem;line-height:1;color:var(--green);font-weight:600}
+.date-block .d{font-family:var(--serif);font-size:2.8rem;line-height:1;color:var(--green);font-weight:400}
 .date-block .m{font-weight:700;letter-spacing:.12em;color:var(--rose);font-size:.85rem;margin-top:.25rem}
 .event-body .tag{font-weight:700;color:var(--rose);font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.35rem}
 .event-body h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:.45rem}
@@ -252,7 +244,7 @@ dialog.menu::backdrop{background:rgba(28,58,52,.45);backdrop-filter:blur(3px)}
 .quotes .photo .badge{position:absolute;left:1rem;bottom:1rem;background:rgba(28,58,52,.62);backdrop-filter:blur(6px);
   color:var(--cream);padding:.55rem .95rem;border-radius:100px;font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
 .qmark{font-family:var(--serif);font-size:5rem;line-height:.6;color:var(--coral);opacity:.5;height:2.2rem;display:block}
-blockquote{font-family:var(--serif);font-weight:500;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.4;color:var(--green);margin:0 0 1rem}
+blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.4;color:var(--green);margin:0 0 1rem}
 .q-row{padding:1.6rem 0}
 .q-row + .q-row{border-top:1px solid var(--line)}
 .q-row:first-of-type{padding-top:0}
@@ -330,7 +322,7 @@ blockquote{font-family:var(--serif);font-weight:500;font-size:clamp(1.3rem,2.2vw
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:2.5rem}
 .foot .logo{display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem}
 .foot .logo img{width:44px;height:44px;border-radius:11px}
-.foot .logo b{font-family:var(--serif);font-size:1.5rem;color:var(--cream);font-weight:600}
+.foot .logo b{font-family:var(--serif);font-size:1.55rem;color:var(--cream);font-weight:400}
 .foot .tagline{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--coral-soft);max-width:24ch}
 .foot h4{color:var(--cream);font-family:var(--sans);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.1rem}
 .foot ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:.7rem}

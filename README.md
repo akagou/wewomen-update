@@ -1,6 +1,6 @@
 # wewomen-update
 
-A modernization concept for the **wewomen.fit** homepage — a "refresh" that keeps the brand's equity (the logo and the copy) and lifts the weight and date off the current execution. Skinned to the **canonical WeWomen brand** (Mercado serif, green `#2E5650`, Montserrat, coral `#E07A5F`) so it matches `free-library.html` and the funnel mockup — the live Lovable homepage is still on the older Playfair + `#004D4D` teal look.
+A modernization concept for the **wewomen.fit** homepage — a "refresh" that keeps the brand's equity (the logo and the copy) and lifts the weight and date off the current execution. Uses the **canonical WeWomen colours** (green `#2E5650`, coral `#E07A5F`, cream) so it matches `free-library.html` and the funnel mockup. Display type is **Hedvig Letters Serif** + **Montserrat** body (Mercado was tried and cut as too decorative; the free-library page still runs Mercado, so propagate the new display face there for full consistency). The live Lovable homepage is still on the older Playfair + `#004D4D` teal look.
 
 Self-contained: open `index.html` in a browser, or serve the folder:
 
@@ -14,7 +14,7 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 |---|---|---|
 | Layout | Centered single column, every section the same | Asymmetric editorial — hero split, alternating offer rows, event "ticket", featured-guide library |
 | Section labels | Uppercase coral eyebrow over **every** section | Removed; headlines carry the page, one deliberate brand kicker in the hero |
-| Display font | Playfair Display | **Mercado** (the brand's own serif — matches the other pages) |
+| Display font | Playfair Display | **Hedvig Letters Serif** (warm, modern, credible) |
 | Body font | Nunito Sans | **Montserrat** |
 | Green / coral | `#004D4D` / `#E78B7E` (live) | `#2E5650` / `#E07A5F` (canonical brand) |
 | Imagery | Hero only; ~80% text on cream | Real photography in every section |
