@@ -4,32 +4,34 @@ The redesign **keeps the brand's equity** and modernizes everything around it: a
 
 ## Theme
 
-Light, warm, editorial. Brand **cream** canvas (`#FAF8F4`), deep **green** as the ink and structural colour, **coral** as the single energising accent, with soft sage and warm bands for rhythm. Scene: a woman reading on her phone in good daylight — calm, credible, warmth carried by photography and the coral, not by visual noise.
+Light, fresh, editorial. A clean off-white canvas (`#F8FBF9`, a whisper of green — replaces the old warm cream), a **richer pine green** as the ink and structure, **coral** as the single energising accent, soft sage and a warm coral band for rhythm. Scene: a woman reading on her phone in good morning light — calm, credible, warmth carried by photography and the coral, not by a beige wash.
 
 ## Color
 
-Canonical WeWomen tokens (shared with the free-library + funnel pages). Strategy: **restrained** — green + neutral surfaces carry the page, coral is the ≤10% accent. Green goes full-bleed for two committed bands (event surface, footer).
+Refined WeWomen palette. Strategy: **restrained** — green + neutral surfaces carry the page, coral is the accent allowed to breathe. Green goes full-bleed for two committed bands (event surface, footer). (Evolves the canonical green/coral: green richened from `#2E5650`, cream → cleaner off-white, and the old brick-rose link collapsed into a deep terracotta of the coral's own hue — one warm family, not two reds.)
 
 | Token | Value | Role |
 |---|---|---|
-| `--bg` | `#FAF8F4` | Page background — brand cream |
-| `--surface` | `#EEF2EF` | Alt section bands — soft sage |
-| `--surface-warm` | `#F7ECE4` | Warm accent band (session replay) |
-| `--green` | `#2E5650` | Brand green — headings, primary buttons, structure |
-| `--green-deep` | `#234740` | Footer / deep bands |
-| `--green-900` | `#1C3A34` | Darkest — text on coral |
-| `--ink` | `#2C3531` | Heading/strong text (~11:1) |
-| `--ink-soft` | `#4D5B5E` | Body text (~6.7:1) |
+| `--bg` | `#F8FBF9` | Page background — clean fresh off-white |
+| `--surface` | `#EAF1ED` | Alt section bands — soft sage |
+| `--surface-warm` | `#FBECE4` | Warm coral band (session replay) |
+| `--green` | `#1C5046` | Brand green (richer pine) — headings, primary buttons, structure |
+| `--green-deep` | `#143A33` | Footer / deep bands |
+| `--green-900` | `#0E2B26` | Darkest — text on coral |
+| `--ink` | `#21302C` | Heading/strong text (~13:1) |
+| `--ink-soft` | `#45585A` | Body text (~7:1) |
 | `--coral` | `#E07A5F` | Accent — fills, shapes, underlines, hover |
-| `--rose` | `#B04646` | Coral **as text/links** on light — darkened to pass AA (~5.2:1) |
-| `--cream` | `#FAF8F4` | Text on green/dark |
+| `--coral-ink` | `#A8472B` | Coral **as text/links** — deep terracotta, same hue (~5.6:1) |
+| `--cream` | `#FAF9F6` | Text on green/dark |
 
-Per-category accents (matching the free-library library): Nutrition `#A8442F`, Movement `#8A6D2E`, Stress&Sleep `#4D6788`, Recovery/Hormone `#2E5650`.
+Per-category library accents: Nutrition `#A8442F`, Movement `#8A6D2E`, Stress&Sleep `#4D6788`, Recovery/Hormone `#1C5046`.
 
 **Contrast rules (load-bearing — the live site fails these):**
-- Coral is never used as body text or links on a light background. For coral-coloured text use `--rose`.
-- Coral buttons use `--green-900` text (~4.2:1, passes large-text AA), never white (white-on-coral is ~3:1).
-- Primary buttons are green fill + `--cream` text (~7.7:1).
+- Coral is never used as body text or links on a light background. For coral-coloured text use `--coral-ink`.
+- Coral buttons use `--green-900` text (~5.1:1), never white (white-on-coral is ~3:1).
+- Primary buttons are green fill + `--cream` text (~8.7:1).
+
+A side-by-side of the current vs refined palette lives in `palette-compare.html`.
 
 ## Typography
 

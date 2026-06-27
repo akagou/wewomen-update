@@ -14,22 +14,22 @@
 <style>
 /* ============================================================= TOKENS */
 :root{
-  /* color — WeWomen canonical brand (matches free-library + funnel) */
-  --bg:#faf8f4;            /* brand cream */
-  --surface:#eef2ef;       /* soft sage band */
-  --surface-2:#f6f3ec;
-  --surface-warm:#f7ece4;  /* warm band */
-  --green:#2e5650;         /* brand green (primary) */
-  --green-deep:#234740;
-  --green-900:#1c3a34;     /* darkest — text on coral */
-  --ink:#2c3531;           /* body/heading ink ~11:1 */
-  --ink-soft:#4d5b5e;      /* muted body, ~6.7:1 */
-  --coral:#e07a5f;         /* accent — fills only, dark text */
+  /* color — refined WeWomen palette (richer green, cleaner ground, one coral) */
+  --bg:#f8fbf9;            /* clean fresh off-white, whisper of green */
+  --surface:#eaf1ed;       /* soft sage band */
+  --surface-2:#f1f6f3;
+  --surface-warm:#fbece4;  /* warm coral band */
+  --green:#1c5046;         /* brand green — richer pine (primary) */
+  --green-deep:#143a33;
+  --green-900:#0e2b26;     /* darkest — text on coral */
+  --ink:#21302c;           /* heading/strong text (~13:1) */
+  --ink-soft:#45585a;      /* body (~6.9:1) */
+  --coral:#e07a5f;         /* accent — fills, shapes, hover */
   --coral-soft:#eeb6a6;
-  --rose:#b04646;          /* coral AS TEXT/links on light, ~5.2:1 */
-  --cream:#faf8f4;         /* text on green/dark */
-  --line:#e4ded3;          /* warm hairline */
-  --line-deep:#3f5f57;
+  --coral-ink:#a8472b;     /* coral AS TEXT/links — deep terracotta, same hue */
+  --cream:#faf9f6;         /* text on green/dark */
+  --line:#dee7e1;          /* hairline */
+  --line-deep:#2e5a4f;
 
   /* type */
   --serif:"Hedvig Letters Serif",Georgia,serif;
@@ -77,7 +77,7 @@ img{max-width:100%;display:block;height:auto}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 input{font:inherit}
-:focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--coral-ink);outline-offset:3px;border-radius:4px}
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.015em;color:var(--green);text-wrap:balance}
 p{text-wrap:pretty}
 
@@ -86,7 +86,7 @@ p{text-wrap:pretty}
 .section{padding-block:var(--section-y)}
 .eyebrow{
   display:inline-flex;align-items:center;gap:.5rem;
-  font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--rose);
+  font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--coral-ink);
   text-transform:uppercase;margin-bottom:1rem;
 }
 .eyebrow::before{content:"";width:1.4rem;height:2px;background:var(--coral);border-radius:2px}
@@ -102,8 +102,8 @@ p{text-wrap:pretty}
 .btn svg{transition:transform .35s var(--ease)}
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0)}
-.btn--primary{background:var(--green);color:var(--cream);box-shadow:0 8px 22px -10px rgba(46,86,80,.55)}
-.btn--primary:hover{background:#234740;box-shadow:0 14px 30px -12px rgba(46,86,80,.6)}
+.btn--primary{background:var(--green);color:var(--cream);box-shadow:0 8px 22px -10px rgba(28,80,70,.55)}
+.btn--primary:hover{background:#16443b;box-shadow:0 14px 30px -12px rgba(28,80,70,.6)}
 .btn--primary:hover svg{transform:translateX(4px)}
 .btn--warm{background:var(--coral);color:var(--green-900)}
 .btn--warm:hover{background:#e6917a}
@@ -116,7 +116,7 @@ p{text-wrap:pretty}
 /* text link with growing underline */
 .tlink{
   display:inline-flex;align-items:center;gap:.45rem;
-  color:var(--rose);font-weight:600;letter-spacing:-.01em;
+  color:var(--coral-ink);font-weight:600;letter-spacing:-.01em;
   padding-bottom:2px;position:relative;
 }
 .tlink::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;
@@ -131,7 +131,7 @@ p{text-wrap:pretty}
   transition:background .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
   border-bottom:1px solid transparent;
 }
-.site-head.scrolled{background:rgba(250,248,244,.86);backdrop-filter:blur(12px);border-color:var(--line);box-shadow:var(--shadow-sm)}
+.site-head.scrolled{background:rgba(248,251,249,.85);backdrop-filter:blur(12px);border-color:var(--line);box-shadow:var(--shadow-sm)}
 .site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
 .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:400;font-size:1.35rem;color:var(--green);letter-spacing:-.01em}
 .brand img{width:34px;height:34px;border-radius:9px}
@@ -154,7 +154,7 @@ dialog.menu{
   border:none;padding:0;margin:0;width:min(420px,92vw);max-width:none;height:100dvh;max-height:100dvh;
   margin-left:auto;background:var(--bg);box-shadow:var(--shadow-lg);
 }
-dialog.menu::backdrop{background:rgba(28,58,52,.45);backdrop-filter:blur(3px)}
+dialog.menu::backdrop{background:rgba(16,46,40,.45);backdrop-filter:blur(3px)}
 .menu-inner{display:flex;flex-direction:column;height:100%;padding:1.3rem var(--gutter)}
 .menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
 .menu-links{display:flex;flex-direction:column;gap:.2rem}
@@ -164,7 +164,7 @@ dialog.menu::backdrop{background:rgba(28,58,52,.45);backdrop-filter:blur(3px)}
 /* ============================================================= HERO */
 .hero{position:relative;padding-top:clamp(7rem,14vw,10rem);padding-bottom:var(--section-y)}
 .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-.hero-kicker{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;color:var(--rose);margin-bottom:1.4rem;font-size:1.02rem}
+.hero-kicker{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;color:var(--coral-ink);margin-bottom:1.4rem;font-size:1.02rem}
 .hero-kicker .tick{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--coral);color:var(--green-900);align-items:center;justify-content:center}
 .hero h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:400;margin-bottom:1.3rem}
 .hero h1 .u{position:relative;white-space:nowrap}
@@ -203,8 +203,8 @@ dialog.menu::backdrop{background:rgba(28,58,52,.45);backdrop-filter:blur(3px)}
 .event::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:var(--coral);opacity:.08}
 .date-block{text-align:center;background:var(--cream);border-radius:var(--r);padding:.9rem 1.3rem;box-shadow:var(--shadow-sm);min-width:104px}
 .date-block .d{font-family:var(--serif);font-size:2.8rem;line-height:1;color:var(--green);font-weight:400}
-.date-block .m{font-weight:700;letter-spacing:.12em;color:var(--rose);font-size:.85rem;margin-top:.25rem}
-.event-body .tag{font-weight:700;color:var(--rose);font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.35rem}
+.date-block .m{font-weight:700;letter-spacing:.12em;color:var(--coral-ink);font-size:.85rem;margin-top:.25rem}
+.event-body .tag{font-weight:700;color:var(--coral-ink);font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.35rem}
 .event-body h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:.45rem}
 .event-body p{color:var(--ink-soft);font-size:.98rem;max-width:60ch}
 .event-body p b{color:var(--ink);font-weight:600}
@@ -230,18 +230,18 @@ dialog.menu::backdrop{background:rgba(28,58,52,.45);backdrop-filter:blur(3px)}
 .offer:last-child{margin-bottom:0}
 .offer .tag{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;color:var(--green);background:var(--surface);
   padding:.4rem .9rem;border-radius:100px;font-size:.9rem;margin-bottom:1rem}
-.offer.coral .tag{color:var(--rose);background:var(--surface-warm)}
+.offer.coral .tag{color:var(--coral-ink);background:var(--surface-warm)}
 .offer h3{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--green);margin-bottom:.9rem;line-height:1.12}
 .offer p{color:var(--ink-soft);font-size:1.08rem;max-width:50ch;margin-bottom:1.4rem}
 .checks{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.7rem 1.5rem;margin-bottom:1.7rem}
 .checks li{display:flex;align-items:flex-start;gap:.6rem;color:var(--ink);font-weight:500}
-.checks svg{flex:none;color:var(--rose);margin-top:.2rem}
+.checks svg{flex:none;color:var(--coral-ink);margin-top:.2rem}
 
 /* ============================================================= TESTIMONIALS */
 .quotes{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .quotes .photo{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/4.6;box-shadow:var(--shadow-lg)}
 .quotes .photo img{width:100%;height:100%;object-fit:cover}
-.quotes .photo .badge{position:absolute;left:1rem;bottom:1rem;background:rgba(28,58,52,.62);backdrop-filter:blur(6px);
+.quotes .photo .badge{position:absolute;left:1rem;bottom:1rem;background:rgba(16,46,40,.62);backdrop-filter:blur(6px);
   color:var(--cream);padding:.55rem .95rem;border-radius:100px;font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
 .qmark{font-family:var(--serif);font-size:5rem;line-height:.6;color:var(--coral);opacity:.5;height:2.2rem;display:block}
 blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.4;color:var(--green);margin:0 0 1rem}
@@ -263,7 +263,7 @@ blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw
 .guide-featured{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:340px;display:flex;align-items:flex-end;
   box-shadow:var(--shadow);color:var(--cream)}
 .guide-featured img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.guide-featured .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,58,52,0) 30%,rgba(28,58,52,.86))}
+.guide-featured .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,46,40,0) 30%,rgba(16,46,40,.86))}
 .guide-featured .c{position:relative;padding:1.8rem}
 .guide-featured .pill{display:inline-block;background:var(--coral);color:var(--green-900);font-weight:700;font-size:.78rem;
   letter-spacing:.04em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:.8rem}
@@ -274,10 +274,10 @@ blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw
   box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .guide:hover{transform:translateX(5px);box-shadow:var(--shadow)}
 .guide .ic{flex:none;width:46px;height:46px;border-radius:13px;background:var(--surface);display:grid;place-items:center;color:var(--green)}
-.guide.c2 .ic{background:var(--surface-warm);color:var(--rose)}
+.guide.c2 .ic{background:var(--surface-warm);color:var(--coral-ink)}
 .guide .g-t{display:block;font-weight:700;color:var(--green);font-size:1.05rem;line-height:1.2}
 .guide .g-d{display:block;font-size:.9rem;color:var(--ink-soft);margin-top:.1rem}
-.guide .arr{margin-left:auto;color:var(--rose);transition:transform .35s var(--ease)}
+.guide .arr{margin-left:auto;color:var(--coral-ink);transition:transform .35s var(--ease)}
 .guide:hover .arr{transform:translateX(4px)}
 .lib-cta{margin-top:2.5rem;display:flex;justify-content:center}
 
@@ -289,16 +289,16 @@ blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw
 .video .play{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:rgba(251,252,252,.92);
   display:grid;place-items:center;color:var(--green);box-shadow:var(--shadow);transition:transform .35s var(--ease),background .25s}
 .video:hover .play{transform:scale(1.08);background:#fff}
-.video .dur{position:absolute;right:1rem;bottom:1rem;background:rgba(28,58,52,.7);color:var(--cream);font-weight:600;
+.video .dur{position:absolute;right:1rem;bottom:1rem;background:rgba(16,46,40,.7);color:var(--cream);font-weight:600;
   font-size:.85rem;padding:.4rem .8rem;border-radius:100px}
-.replay .t .tag{color:var(--rose);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;margin-bottom:.7rem;display:block}
+.replay .t .tag{color:var(--coral-ink);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;margin-bottom:.7rem;display:block}
 .replay .t h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:1rem}
 .replay .t p{color:var(--ink-soft);font-size:1.1rem;max-width:46ch;margin-bottom:1.6rem}
 
 /* ============================================================= NEWSLETTER */
 .news{position:relative;border-radius:var(--r-xl);overflow:hidden;isolation:isolate}
 .news img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.news .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(28,58,52,.95) 35%,rgba(46,86,80,.72))}
+.news .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(16,46,40,.95) 35%,rgba(28,80,70,.72))}
 .news .inner{padding:clamp(2.6rem,6vw,5rem);max-width:620px;color:var(--cream)}
 .news h2{color:var(--cream);font-size:clamp(2rem,4vw,3rem);margin-bottom:.8rem}
 .news p{color:rgba(251,252,252,.86);font-size:1.1rem;margin-bottom:1.8rem;max-width:46ch}
@@ -638,7 +638,7 @@ html{scroll-behavior:smooth}
                 <span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
               </a>
               <a class="guide c2" href="/resources" data-reveal style="--d:.15s">
-                <span class="ic" style="color:#2e5650;background:#e7efeb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9M21 3l-9 9-3-3"/></svg></span>
+                <span class="ic" style="color:#1c5046;background:#e7efeb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9M21 3l-9 9-3-3"/></svg></span>
                 <span><span class="g-t">Recovery</span><span class="g-d">Rest is part of the work</span></span>
                 <span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
               </a>

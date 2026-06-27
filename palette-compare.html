@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WeWomen — palette: current vs refined</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:Montserrat,sans-serif;background:#e7e7e4;padding:40px;color:#222}
+h1.title{font-family:Montserrat;font-weight:700;font-size:22px;margin-bottom:24px;color:#333}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1100px;margin:0 auto}
+.panel{border-radius:20px;overflow:hidden;box-shadow:0 12px 40px -16px rgba(0,0,0,.25)}
+.tag{font-family:Montserrat;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:12px 24px}
+.tag.cur{background:#3a3a3a;color:#fff}
+.tag.new{background:#1c5046;color:#fff}
+.body{padding:30px 28px 34px}
+.sw-row{display:flex;gap:0;border-radius:12px;overflow:hidden;margin-bottom:22px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.sw{flex:1;height:64px;display:flex;align-items:flex-end;padding:6px;font-size:10px;font-family:Montserrat;font-weight:600}
+h2.h{font-family:'Hedvig Letters Serif';font-weight:400;font-size:34px;line-height:1.1;letter-spacing:-.015em;margin-bottom:6px}
+.u{position:relative;white-space:nowrap}
+.u::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.08em;height:.34em;border-radius:4px;z-index:-1}
+p.lede{font-size:15px;line-height:1.55;margin-bottom:20px}
+.btns{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:12px 22px;border-radius:100px;font-weight:600;font-size:15px}
+.link{font-weight:600;font-size:15px}
+.note{font-size:11px;font-family:Montserrat;color:#777;margin-top:4px}
+
+/* CURRENT */
+.cur-body{background:#faf8f4}
+.cur-body h2{color:#2e5650}.cur-body .u::after{background:#e07a5f;opacity:.42}
+.cur-body p{color:#4d5b5e}
+.cur-body .b-primary{background:#2e5650;color:#faf8f4}
+.cur-body .b-warm{background:#e07a5f;color:#1c3a34}
+.cur-body .link{color:#b04646}
+/* REFINED */
+.new-body{background:#f8fbf9}
+.new-body h2{color:#1c5046}.new-body .u::after{background:#e07a5f;opacity:.5}
+.new-body p{color:#45585a}
+.new-body .b-primary{background:#1c5046;color:#faf9f6}
+.new-body .b-warm{background:#e07a5f;color:#0e2b26}
+.new-body .link{color:#a8472b}
+.cap{max-width:1100px;margin:18px auto 0;font-size:12px;color:#555;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cap div{line-height:1.5}
+</style></head>
+<body>
+<h1 class="title">WeWomen homepage — colour: current vs refined</h1>
+<div class="cols">
+  <div class="panel">
+    <div class="tag cur">Current</div>
+    <div class="body cur-body">
+      <div class="sw-row">
+        <div class="sw" style="background:#faf8f4;color:#2e5650">cream</div>
+        <div class="sw" style="background:#eef2ef;color:#2e5650">sage</div>
+        <div class="sw" style="background:#2e5650;color:#fff">#2E5650</div>
+        <div class="sw" style="background:#e07a5f;color:#1c3a34">#E07A5F</div>
+        <div class="sw" style="background:#b04646;color:#fff">#B04646</div>
+      </div>
+      <h2 class="h">Your body is changing. We help you <span class="u">understand it.</span></h2>
+      <p class="lede">Evidence-based health education for women — whether you're preparing for what's ahead or already navigating change.</p>
+      <div class="btns">
+        <span class="btn b-primary">Explore programmes →</span>
+        <span class="btn b-warm">Learn more →</span>
+        <span class="link">For organisations →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="tag new">Refined</div>
+    <div class="body new-body">
+      <div class="sw-row">
+        <div class="sw" style="background:#f8fbf9;color:#1c5046">off-white</div>
+        <div class="sw" style="background:#eaf1ed;color:#1c5046">sage</div>
+        <div class="sw" style="background:#1c5046;color:#fff">#1C5046</div>
+        <div class="sw" style="background:#e07a5f;color:#0e2b26">#E07A5F</div>
+        <div class="sw" style="background:#a8472b;color:#fff">#A8472B</div>
+      </div>
+      <h2 class="h">Your body is changing. We help you <span class="u">understand it.</span></h2>
+      <p class="lede">Evidence-based health education for women — whether you're preparing for what's ahead or already navigating change.</p>
+      <div class="btns">
+        <span class="btn b-primary">Explore programmes →</span>
+        <span class="btn b-warm">Learn more →</span>
+        <span class="link">For organisations →</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cap">
+  <div><b>Current:</b> dusty green, warm cream ground, brick-red link (a 2nd red).</div>
+  <div><b>Refined:</b> richer pine green, cleaner fresh ground, link is a deep terracotta of the coral's own hue — one warm family.</div>
+</div>
+</body></html>
