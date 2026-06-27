@@ -158,8 +158,8 @@ p{text-wrap:pretty}
 }
 .nav .live:hover{background:#f18d6f;color:var(--green-900)}
 .nav .live[aria-current="page"]{background:var(--coral)}
-.live .dot{width:8px;height:8px;border-radius:50%;background:var(--green-deep);position:relative}
-.live .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--green-deep);opacity:.5;animation:ping 1.8s var(--ease) infinite}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--cream);position:relative}
+.live .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--cream);opacity:.6;animation:ping 1.8s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.7);opacity:.6}100%{transform:scale(1.7);opacity:0}}
 .menu-btn{display:none;width:46px;height:46px;border-radius:12px;align-items:center;justify-content:center;color:var(--green)}
 .menu-btn:hover{background:var(--surface)}
